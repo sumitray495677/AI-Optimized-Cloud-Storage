@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base color adjustments & nicer card shadows */
+:root{
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #4f46e5; /* indigo-600 */
+  --accent-600: #4338ca;
+  --tag-bg: #eef2ff;
+  --tag-text: #4338ca;
+}
+
+html, body, #root { height: 100%; }
+body {
+  background-color: #CAF0F8 !important;
+}
+
+
+
+
+/* Card style */
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+  padding: 1rem;
+}
+
+/* Header */
+.app-header {
+  background: linear-gradient(90deg, rgba(79,70,229,0.08), rgba(99,102,241,0.03));
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:1rem;
+}
+.app-title {
+  font-weight:700;
+  color:var(--accent-600);
+  letter-spacing: -0.2px;
+}
+
+/* Search */
+.search-box {
+  background: #111827;
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  width:100%;
+  box-shadow: 0 4px 10px rgba(17,24,39,0.06);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+.search-box input {
+  background:transparent;
+  border:0;
+  outline:0;
+  width:100%;
+  color: #fff;
+}
+
+/* Folder list */
+.folder-item {
+  border-radius: 8px;
+  padding: 10px;
+  transition: all .12s ease;
+}
+.folder-item:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(15,23,42,0.06); }
+
+/* Tags */
+.tag-pill {
+  display:inline-block;
+  padding: 0.18rem 0.6rem;
+  border-radius: 999px;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: 11px;
+  font-weight:600;
+  margin-right:8px;
+}
+
+/* Status pill */
+.status-pill {
+  background:#f3f4f6;
+  color:var(--muted);
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:12px;
+}
+
+/* Buttons small */
+.btn-small {
+  font-size: 13px;
+  padding:6px 8px;
+  border-radius:8px;
+}
+
+/* Upload dashed area */
+.upload-area {
+  border: 2px dashed rgba(99,102,241,0.18);
+  background: linear-gradient(180deg, rgba(99,102,241,0.02), transparent);
+  padding: 1.1rem;
+  border-radius: 10px;
+  text-align:center;
+}
+
+/* File list item */
+.file-row {
+  padding: 14px;
+  border-radius: 8px;
+  transition: background .12s ease, transform .12s ease;
+}
+.file-row:hover { background: #fff; transform: translateY(-3px); }
+
+/* Small utilities */
+.muted { color: var(--muted); font-size: 13px; }
+.small { font-size: 13px; }
+.right-links a { margin-right: 12px; color: var(--accent); font-weight:600; }
+
+/* responsive tweaks */
+@media (max-width: 900px) {
+  .app-header { flex-direction: column; align-items:stretch; gap:8px; }
+}
+
+/* --- Fix: ensure UI headings and labels are readable on light bg --- */
+:root{
+  --app-text: #0f172a;    /* primary text (dark) */
+  --app-muted: #6b7280;   /* muted text */
+  --app-accent: #5b21b6;  /* links/buttons */
+}
+
+/* Force readable colors for headings / labels / small text */
+body,
+h1,h2,h3,h4,h5,h6,
+.font-medium, .text-lg, .text-sm, .text-xs,
+.text-gray-800, .text-gray-700 {
+  color: var(--app-text) !important;
+}
+
+/* Muted copy */
+.text-gray-500, .text-gray-600, .text-gray-400 {
+  color: var(--app-muted) !important;
+}
+
+/* Links / action buttons */
+a, a:visited, button, .text-blue-600, .text-indigo-600 {
+  color: var(--app-accent) !important;
+}
+
+/* Ensure section titles inside cards are visible */
+.bg-white h3, .bg-white h4 {
+  color: var(--app-text) !important;
+}
+
+/* Small helper: keep dashed upload text readable */
+.border-gray-200, .text-sm.text-gray-500 {
+  color: var(--app-muted) !important;
+}
+
+/* Accessibility: focus outline for keyboard nav */
+:focus { outline: 3px solid rgba(59,130,246,0.2); outline-offset: 2px; }
